@@ -26,6 +26,16 @@ angular.module('tour_guides', [
             url: '/register',
             templateUrl: 'templates/register.html',
             controller: 'RegisterController'
+        })
+        .state('locationList', {
+            url: '/locations',
+            templateUrl: 'templates/location-list.html',
+            controller: 'LocationListController'
+        })
+        .state('tourGuideList', {
+            url: '/tourguides/:locationId',
+            templateUrl: 'templates/tour-guide-list.html',
+            controller: 'TourGuideListController'
         });
 
     $urlRouterProvider.otherwise('');
