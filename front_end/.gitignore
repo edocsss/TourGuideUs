@@ -1,9 +1,9 @@
 node_modules
-www
+app
 .idea
 .temp
 .sass-cache
-app/bower_components
+www/bower_components
 coverage
 platforms
 plugins
