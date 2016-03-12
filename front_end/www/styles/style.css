@@ -3,10 +3,37 @@ html, body {
     color: #555555;
 }
 
+.button-brand-primary,
+.button-brand-primary.activated {
+    background-color: #008080;
+    border: none;
+    color: #FFFFFF;
+}
+
+.button-brand-primary:hover,
+.button-brand-primary:active {
+    background-color: #026E6E;
+    color: #FFFFFF;
+}
+
+.button-brand-primary:active {
+    background-color: #006060;
+}
+
+
+
+/* FONT FACE */
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../fonts/BebasNeue.otf') format("opentype");
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #555555;
 }
+
+
 
 /* UTILITY */
 .row-xs-margin-top {
@@ -29,6 +56,10 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 50px !important;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 
 
 #row-home-logo {
@@ -42,6 +73,24 @@ h1, h2, h3, h4, h5, h6,
 .home-logo {
     width: 200px;
     height: auto;
+}
+
+#brand-text-row {
+    font-family: BebasNeue;
+    justify-content: center;
+}
+
+.brand-header-text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.brand-green {
+    color: #008080;
+}
+
+.brand-black {
+    color: #333333;
 }
 
 #home-content button {
