@@ -1,17 +1,18 @@
+var profpicURLs = [
+    'images/profile_pictures/1.png',
+    'images/profile_pictures/2.png',
+    'images/profile_pictures/3.png',
+    'images/profile_pictures/4.png',
+    'images/profile_pictures/5.png'
+];
+
+function getRandomProfpicURL () {
+    var randomIndex = Math.floor(Math.random() * profpicURLs.length);
+    return profpicURLs[randomIndex];
+}
+
+
 Meteor.startup(function () {
-    var profpicURLs = [
-        'images/profile_pictures/1.png',
-        'images/profile_pictures/2.png',
-        'images/profile_pictures/3.png',
-        'images/profile_pictures/4.png',
-        'images/profile_pictures/5.png'
-    ];
-
-    function getRandomProfpicURL () {
-        var randomIndex = Math.floor(Math.random() * profpicURLs.length);
-        return profpicURLs[randomIndex];
-    }
-
     var testTourguideID, testTourguideID2, testTouristID;
     if (Meteor.users.find().count() === 0) {
         testTouristID = Accounts.createUser({
@@ -21,7 +22,7 @@ Meteor.startup(function () {
                 name: 'Test Tourist 1',
                 email: 'tourist1@tourist.com',
                 contact: '12345678',
-                profpicURl: getRandomProfpicURL(),
+                profpicURL: getRandomProfpicURL(),
                 type: 'tourist'
             }
         });
@@ -33,7 +34,7 @@ Meteor.startup(function () {
                 name: 'Test Tour Guide 1',
                 email: 'tourguide1@tourguide.com',
                 contact: '12345678',
-                profpicURl: getRandomProfpicURL(),
+                profpicURL: getRandomProfpicURL(),
                 tagline: 'Tour Guide 1 Tagline',
                 description: 'I have a tour guide license',
                 location: 'jakarta',
@@ -53,11 +54,11 @@ Meteor.startup(function () {
                 name: 'Test Tour Guide 2',
                 email: 'tourguide2@tourguide.com',
                 contact: '12345678',
-                profpicURl: getRandomProfpicURL(),
+                profpicURL: getRandomProfpicURL(),
                 tagline: 'Tour Guide 2 Tagline',
                 description: 'I have a tour guide license',
                 location: 'jakarta',
-                price: 50,
+                price: 10,
                 availability: {
                     start: new Date('March 14, 2016 00:00:00'),
                     end: new Date('March 31, 2016 23:59:59')
@@ -113,6 +114,25 @@ Meteor.startup(function () {
             },
             totalCost: 1000,
             accepted: false
+        });
+    }
+});
+
+
+Meteor.methods({
+    createNewUser: function (email, password, userProfile) {
+        var newUserId = Accounts.createUser({
+            email: email,
+            password: password,
+            profile: userProfile
+        });
+
+        Locations.update({
+            name: userProfile.location
+        }, {
+            $push: {
+                tourguides: newUserId
+            }
         });
     }
 });
