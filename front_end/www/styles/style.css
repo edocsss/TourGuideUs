@@ -20,6 +20,24 @@ html, body {
     background-color: #006060;
 }
 
+.bar.bar-positive {
+    background-color: #008080;
+    border: none;
+}
+
+.bar.bar-positive .item-input-wrapper {
+    background-color: #FCFCFC;
+}
+
+.item h1:last-child,
+.item h2:last-child,
+.item h3:last-child,
+.item h4:last-child,
+.item h5:last-child,
+.item h6:last-child {
+    margin-bottom: 4px;
+}
+
 
 
 /* FONT FACE */
@@ -121,4 +139,36 @@ h1, h2, h3, h4, h5, h6,
 
 #login-content button {
     width: 100%;
+}
+
+
+
+.location-list-img {
+    width: 100%;
+    height: auto;
+}
+
+.location-list-image-item {
+    padding: 0;
+    border: none;
+}
+
+#location-list .item:hover {
+    cursor: pointer;
+}
+
+#location-list .item:nth-child(even) {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#location-list .item:nth-child(even) h3 {
+    font-size: 20px;
+}
+
+.availabe-guides-container {
+    text-align: right;
 }

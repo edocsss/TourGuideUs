@@ -1,0 +1,37 @@
+<ion-view>
+    <ion-content id="location-list-content">
+        <div class="bar bar-header bar-positive item-input-inset">
+            <label class="item-input-wrapper">
+                <span class="icon ion-search placeholder-icon"></span>
+                <input type="search" placeholder="Where do you want to go?" ng-model="location.searchText">
+            </label>
+
+            <button class="button button-clear" ng-click="clearSearchBox()">
+                Clear
+            </button>
+        </div>
+
+        <div class="list" id="location-list">
+            <span ng-repeat="location in locationList | filter: { name: location.searchText }" ui-sref="tourGuideList({ locationId: location._id })">
+                <div class="item location-list-image-item">
+                    <div class="location-img-container">
+                        <img src="{{ location.imgURL }}" class="location-list-img">
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col">
+                            <h3>{{ location.name }}</h3>
+                        </div>
+
+                        <div class="col availabe-guides-container">
+                            <h3 class="inline-block">{{ location.tourguides.length }}</h3>
+                            <h3 class="inline-block">Guides</h3>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </ion-content>
+</ion-view>
