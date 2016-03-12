@@ -1,4 +1,14 @@
-/* Empty. Add your own CSS if you like */
+/* GLOBAL */
+html, body {
+    color: #555555;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #555555;
+}
+
+/* UTILITY */
 .row-xs-margin-top {
     margin-top: 10px !important;
 }
@@ -35,5 +45,20 @@
 }
 
 #home-content button {
+    width: 100%;
+}
+
+
+
+.register-section-title-row h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.register-section-list {
+    margin-top: 0;
+}
+
+#register-content button {
     width: 100%;
 }
