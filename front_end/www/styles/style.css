@@ -333,4 +333,24 @@ h1, h2, h3, h4, h5, h6,
 
 #TabBottom{
   margin-top: 90%;
+
+}
+
+.listProfile li{
+  display: inline;
+}
+
+.rightPart{
+  margin-left: 70%;
+}
+
+.listProfilePicture{
+  max-width: 55px !important;
+  max-height: 55px !important;
+  top: 10px !important;
+}
+
+
+h2 .idListName{
+  margin-left: 20px;
 }

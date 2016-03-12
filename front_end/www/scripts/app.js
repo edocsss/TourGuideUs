@@ -71,7 +71,13 @@ angular.module('tour_guides', [
           templateUrl: 'templates/pending-list.html',
           controller: 'PendingRequestController',
           // authenticate: 'tourguide'
-        });
+        })
+
+        .state('ListDetail', {
+        url: '/listDetail/:requestId',
+        templateUrl: 'templates/ListDetail.html',
+        controller: 'listDetailController'
+      });
 
   $urlRouterProvider.otherwise('');
 })
