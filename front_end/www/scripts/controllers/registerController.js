@@ -19,6 +19,12 @@ angular.module('tour_guides').controller('RegisterController', function ($scope,
         availability: {}
     };
 
+    $scope.helpers({
+        locationList: function () {
+            return Locations.find();
+        }
+    });
+
     $scope.registerUser = function () {
         var userProfile = {
             name: $scope.newUser.fullName,
