@@ -54,6 +54,7 @@ Meteor.startup(function () {
         });
     }
 
+
     if (Bookings.find().count() === 0) {
         Bookings.insert({
             participants: {
@@ -61,8 +62,11 @@ Meteor.startup(function () {
                 tourist: testTouristID
             },
             dates: {
-
-            }
+                date1: 3,
+                date2: 4
+            },
+            totalCost: 1000,
+            accepted: false
         });
     }
 });
