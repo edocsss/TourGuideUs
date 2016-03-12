@@ -1,1 +1,9 @@
 /* Your application styles go here */
+#row-home-logo {
+    height: 50%;
+}
+
+.home-logo {
+    width: 200px
+    height: auto;
+}

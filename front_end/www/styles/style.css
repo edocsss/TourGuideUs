@@ -1,1 +1,39 @@
 /* Empty. Add your own CSS if you like */
+.row-xs-margin-top {
+    margin-top: 10px !important;
+}
+
+.row-sm-margin-top {
+    margin-top: 10px !important;
+}
+
+.row-md-margin-top {
+    margin-top: 15px !important;
+}
+
+.row-lg-margin-top {
+    margin-top: 30px !important;
+}
+
+.row-xl-margin-top {
+    margin-top: 50px !important;
+}
+
+
+
+#row-home-logo {
+    height: 50%;
+}
+
+#row-home-logo .col {
+    text-align: center;
+}
+
+.home-logo {
+    width: 250px;
+    height: auto;
+}
+
+#home-content button {
+    width: 100%;
+}
