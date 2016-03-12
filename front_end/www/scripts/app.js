@@ -12,16 +12,16 @@ angular.module('tour_guides', [
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('home', {
-            url: '',
-            templateUrl: 'templates/home.html',
-            controller: 'HomeController'
-        })
         // .state('home', {
         //     url: '',
-        //     templateUrl: 'templates/location-list.html',
-        //     controller: 'LocationListController'
+        //     templateUrl: 'templates/home.html',
+        //     controller: 'HomeController'
         // })
+        .state('home', {
+            url: '',
+            templateUrl: 'templates/location-list.html',
+            controller: 'LocationListController'
+        })
         .state('login', {
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -41,6 +41,16 @@ angular.module('tour_guides', [
             url: '/tourguides/:locationId',
             templateUrl: 'templates/tour-guide-list.html',
             controller: 'TourGuideListController'
+        })
+        .state('tourGuideDetails', {
+            url: '/tourguide/:tourguideId',
+            templateUrl: 'templates/tour-guide-details.html',
+            controller: 'TourGuideDetailsController'
+        })
+        .state('bookingRequest', {
+            url: '/booking/:tourguideId',
+            templateUrl: 'templates/booking-request.html',
+            controller: 'BookingRequestController'
         });
 
     $urlRouterProvider.otherwise('');

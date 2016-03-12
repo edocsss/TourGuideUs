@@ -2,11 +2,11 @@
 
 angular.module('tour_guides').controller('RegisterController', function ($scope, $state) {
     var profpicURLs = [
-        'images/profile_pictures/1.jpg',
-        'images/profile_pictures/2.jpg',
-        'images/profile_pictures/3.jpg',
-        'images/profile_pictures/4.jpg',
-        'images/profile_pictures/5.jpg'
+        'images/profile_pictures/1.png',
+        'images/profile_pictures/2.png',
+        'images/profile_pictures/3.png',
+        'images/profile_pictures/4.png',
+        'images/profile_pictures/5.png'
     ];
 
     function getRandomProfpicURL () {

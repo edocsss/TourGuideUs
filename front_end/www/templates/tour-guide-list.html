@@ -1,4 +1,4 @@
-<ion-view view-title="{{ location.name }}">
+<ion-view view-title="{{ location.name | capitalizeEachWord }}">
     <ion-nav-bar class="bar-positive">
         <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
@@ -41,8 +41,8 @@
         </div>
 
         <div class="list" id="tour-guide-list">
-            <span class="item item-avatar" ng-repeat="tourGuide in tourGuideList | filter: filterTourGuide">
-                <img src="{{ tourGuide.profile.profpicURl }}" class="profile-picture-img">
+            <span class="item item-avatar tour-guide-list-item" ng-repeat="tourGuide in tourGuideList | filter: filterTourGuide" ui-sref="tourGuideDetails({tourguideId: tourGuide._id})">
+                <img src="{{ tourGuide.profile.profpicURL }}" class="profile-picture-img">
                 <h2><b>{{ tourGuide.profile.name }}</b></h2>
                 <p>{{ tourGuide.profile.tagline }}</p>
             </span>

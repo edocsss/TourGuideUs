@@ -52,7 +52,7 @@ html, body {
 .item-content h4,
 .item-content h5,
 .item-content h6 {
-    overflow: none;
+    overflow: visible;
 }
 
 
@@ -105,6 +105,10 @@ h1, h2, h3, h4, h5, h6,
 
 .text-center {
     text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 .normal-font-weight {
@@ -285,4 +289,36 @@ h1, h2, h3, h4, h5, h6,
     padding-left: 90px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+#tour-guide-list .item-avatar:hover {
+    cursor: pointer;
+}
+
+
+
+.tour-guide-profile-picture {
+    width: 200px;
+    height: auto;
+}
+
+#tour-guide-name {
+    margin-bottom: 0;
+}
+
+#tour-guide-tagline {
+    margin-top: 3px;
+}
+
+#tour-guide-location {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#tour-guide-contact {
+    margin-top: 3px;
+}
+
+#tour-guide-details-content button {
+    width: 100%;
 }

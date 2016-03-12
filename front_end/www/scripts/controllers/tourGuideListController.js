@@ -18,13 +18,15 @@ angular.module('tour_guides').controller('TourGuideListController', function ($s
         var result = true;
 
         if (!$scope.filter.startDate || !$scope.filter.endDate) {
-            if (price <= $scope.filter.price) {
+            if (parseInt(price) <= parseInt($scope.filter.price)) {
                 result = true;
             } else {
                 result = false;
             }
         } else {
-            if (availabilityStart <= $scope.filter.startDate && availabilityEnd >= $scope.filter.endDate && price <= $scope.filter.price) {
+            if (availabilityStart <= $scope.filter.startDate
+                && availabilityEnd >= $scope.filter.endDate
+                && parseInt(price) <= parseInt($scope.filter.price)) {
                 result = true;
             } else {
                 result = false;

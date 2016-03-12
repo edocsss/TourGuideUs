@@ -1,0 +1,38 @@
+<ion-view view-title="{{ tourGuide.profile.name }}">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="tour-guide-details-content">
+        <div class="row row-center row-md-margin-top" id="tour-guide-profile-picture-row">
+            <div class="col col-100 text-center">
+                <img src="{{ tourGuide.profile.profpicURL }}" class="tour-guide-profile-picture">
+            </div>
+        </div>
+
+        <div class="row row-center" id="tour-guide-name-row">
+            <div class="col col-100 text-center">
+                <h3 id="tour-guide-name">{{ tourGuide.profile.name }}</h3>
+                <h5 id="tour-guide-tagline"><i>"{{ tourGuide.profile.tagline }}"</i></h5>
+                <h5 id="tour-guide-location">{{ tourGuide.profile.location | capitalizeEachWord }} @ ${{ tourGuide.profile.price }} / hour</h5>
+                <h5 id="tour-guide-contact">{{ tourGuide.profile.contact }}</h5>
+            </div>
+        </div>
+
+        <div class="row row-center" id="tour-guide-description-row">
+            <div class="col col-offset-10 col-80">
+                <p class="text-justify">
+                    {{ tourGuide.profile.description }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row row-center row-md-margin-top" id="tour-guide-booking-button">
+            <div class="col col-offset-10 col-80 text-center">
+                <button class="button button-brand-primary" ui-sref="bookingRequest({tourguideId: tourGuide._id})">
+                    Request Booking!
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
