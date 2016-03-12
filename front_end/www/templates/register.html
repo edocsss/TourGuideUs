@@ -56,8 +56,14 @@
                     <textarea row="10" placeholder="Description" ng-model="newUser.description"></textarea>
                 </label>
 
-                <label class="item item-input">
-                    <input type="text" placeholder="Location" ng-model="newUser.location">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Location
+                    </div>
+
+                    <select ng-model="newUser.location">
+                        <option value="{{ location.name }}" ng-repeat="location in locationList">{{ location.name | capitalizeEachWord }}</option>
+                    </select>
                 </label>
 
                 <label class="item item-input">

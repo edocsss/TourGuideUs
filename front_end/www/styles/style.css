@@ -113,6 +113,36 @@ h1, h2, h3, h4, h5, h6,
 
 
 
+
+/* FORM ERROR HANDLING */
+.has-error {
+    border-bottom: 2px solid #F44336;
+}
+
+.error-container {
+    margin: 5px 0;
+}
+
+.error-container:last-child {
+    margin: 5px 0;
+}
+
+.error {
+    padding: 5px 12px;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+
+.error i {
+    font-size: 24px;
+    color: #008080;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+
+
 #row-home-logo {
     height: 50%;
 }
