@@ -12,60 +12,70 @@ angular.module('tour_guides', [
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-         .state('home', {
+        .state('home', {
              url: '',
              templateUrl: 'templates/home.html',
-             controller: 'HomeController'
+             controller: 'HomeController',
+             // authenticate: false
          })
-        //.state('home', {
+        // .state('home', {
         //    url: '',
         //    templateUrl: 'templates/location-list.html',
-        //    controller: 'LocationListController'
-        //})
+        //    controller: 'LocationListController',
+        //    authenticate: false
+        // })
         .state('login', {
             url: '/login',
             templateUrl: 'templates/login.html',
-            controller: 'LoginController'
+            controller: 'LoginController',
+            // authenticate: false
         })
         .state('register', {
             url: '/register',
             templateUrl: 'templates/register.html',
-            controller: 'RegisterController'
+            controller: 'RegisterController',
+            // authenticate: false
         })
         .state('locationList', {
             url: '/locations',
             templateUrl: 'templates/location-list.html',
-            controller: 'LocationListController'
+            controller: 'LocationListController',
+            // authenticate: 'tourist'
         })
         .state('tourGuideList', {
             url: '/tourguides/:locationId',
             templateUrl: 'templates/tour-guide-list.html',
-            controller: 'TourGuideListController'
+            controller: 'TourGuideListController',
+            // authenticate: 'tourist'
         })
         .state('tourGuideDetails', {
             url: '/tourguide/:tourguideId',
             templateUrl: 'templates/tour-guide-details.html',
-            controller: 'TourGuideDetailsController'
+            controller: 'TourGuideDetailsController',
+            // authenticate: 'tourist'
         })
         .state('bookingRequest', {
           url: '/booking/:tourguideId',
           templateUrl: 'templates/booking-request.html',
-          controller: 'BookingRequestController'
+          controller: 'BookingRequestController',
+          // authenticate: 'tourist'
         })
         .state('acceptedList', {
           url: '/acceptedList',
           templateUrl: 'templates/accepted-list.html',
-          controller: 'AcceptedRequestController'
+          controller: 'AcceptedRequestController',
+          // authenticate: 'tourguide'
         })
         .state('pendingList', {
           url: '/pendingList',
           templateUrl: 'templates/pending-list.html',
-          controller: 'PendingRequestController'
+          controller: 'PendingRequestController',
+          // authenticate: 'tourguide'
         });
 
   $urlRouterProvider.otherwise('');
 })
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, $rootScope, $state) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -81,4 +91,18 @@ angular.module('tour_guides', [
             StatusBar.styleDefault();
         }
     });
-});
+
+    // $rootScope.$on('$stateChangeStart', function (e, toState) {
+    //   if (toState.authenticate) {
+    //     if (toState.authenticate !== Meteor.user().profile.type) {
+    //       if (Meteor.user().profile.type === 'tourist') {
+    //         $state.go('locationList');
+    //       } else {
+    //         $state.go('acceptedList');
+    //       }
+    //     }
+    //   } else {
+    //     $state.go('home');
+    //   }
+    // });
+ });
