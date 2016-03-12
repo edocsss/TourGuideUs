@@ -21,3 +21,19 @@ bower install
 ```
 ionic serve --lab
 ```
+
+## Test Account
+Tourist:
+```
+Username: tourist1@tourist.com
+Password: 12345678
+```
+
+Tour Guide:
+```
+Username: tourguide1@tourguide.com
+Password: 12345678
+
+Username: tourguide2@tourguide.com
+Password: 12345678
+```
