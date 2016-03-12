@@ -9,6 +9,26 @@ angular.module('tour_guides', [
 	'ionic',
 	'angular-meteor'
 ])
+.config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('home', {
+            url: '',
+            templateUrl: 'templates/home.html',
+            controller: 'HomeController'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/login.html',
+            controller: 'LoginController'
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: 'templates/register.html',
+            controller: 'RegisterController'
+        });
+
+    $urlRouterProvider.otherwise('');
+})
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
