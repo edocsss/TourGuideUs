@@ -11,22 +11,15 @@ angular.module('tour_guides').controller('PendingRequestController', function ($
     }
   });
 
-  $scope.remove = function(item) {
-    for(var i = 0; i < itemsData.length; i++) {
-      if(itemsData[i] == item ){
-        itemsData.splice(i, 1);
-      }
-    }
-  };
-
   //if like button is clicked
-  $scope.accepted = function(item){
-    for(var i = 0; i < itemsData.length; i++) {
-      if(itemsData[i] == item){
-        itemsData[i].accepted = true;
+  $scope.accepted = function (requestId) {
+    Bookings.update({
+      _id: requestId
+    }, {
+      $set: {
+        accepted: true
       }
-    }
-
+    })
   };
 
   //if filter accepted button is clicked

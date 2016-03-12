@@ -109,8 +109,21 @@ Meteor.startup(function () {
                 tourist: testTouristID
             },
             dates: {
-                date1: 3,
-                date2: 4
+                '2016-03-14': 3,
+                '2016-03-15': 4
+            },
+            totalCost: 1000,
+            accepted: false
+        });
+
+        Bookings.insert({
+            participants: {
+                tour_guide: testTourguideID2,
+                tourist: testTouristID
+            },
+            dates: {
+                '2016-03-20': 3,
+                '2016-03-22': 4
             },
             totalCost: 1000,
             accepted: false

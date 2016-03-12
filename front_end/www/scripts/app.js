@@ -8,20 +8,20 @@
 angular.module('tour_guides', [
 	'ionic',
 	'angular-meteor',
-    'ion-datetime-picker'
+  'ion-datetime-picker'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-        // .state('home', {
-        //     url: '',
-        //     templateUrl: 'templates/home.html',
-        //     controller: 'HomeController'
-        // })
-        .state('home', {
-            url: '',
-            templateUrl: 'templates/location-list.html',
-            controller: 'LocationListController'
-        })
+         .state('home', {
+             url: '',
+             templateUrl: 'templates/home.html',
+             controller: 'HomeController'
+         })
+        //.state('home', {
+        //    url: '',
+        //    templateUrl: 'templates/location-list.html',
+        //    controller: 'LocationListController'
+        //})
         .state('login', {
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -48,24 +48,20 @@ angular.module('tour_guides', [
             controller: 'TourGuideDetailsController'
         })
         .state('bookingRequest', {
-            url: '/booking/:tourguideId',
-            templateUrl: 'templates/booking-request.html',
-            controller: 'BookingRequestController'
+          url: '/booking/:tourguideId',
+          templateUrl: 'templates/booking-request.html',
+          controller: 'BookingRequestController'
+        })
         .state('AcceptedList', {
           url: '/AcceptedList',
           templateUrl: 'templates/AcceptedList.html',
           controller: 'AcceptedRequestController'
         })
-
         .state('PendingList', {
           url: '/pendingList',
           templateUrl: 'templates/PendingList.html',
           controller: 'PendingRequestController'
         });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
-
 
   $urlRouterProvider.otherwise('');
 })
