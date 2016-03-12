@@ -51,9 +51,23 @@ angular.module('tour_guides', [
             url: '/booking/:tourguideId',
             templateUrl: 'templates/booking-request.html',
             controller: 'BookingRequestController'
+        .state('AcceptedList', {
+          url: '/AcceptedList',
+          templateUrl: 'templates/AcceptedList.html',
+          controller: 'AcceptedRequestController'
+        })
+
+        .state('PendingList', {
+          url: '/pendingList',
+          templateUrl: 'templates/PendingList.html',
+          controller: 'PendingRequestController'
         });
 
-    $urlRouterProvider.otherwise('');
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/dash');
+
+
+  $urlRouterProvider.otherwise('');
 })
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

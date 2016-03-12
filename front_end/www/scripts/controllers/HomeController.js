@@ -8,4 +8,9 @@ angular.module('tour_guides').controller('HomeController', function ($scope, $st
     $scope.goToLogin = function () {
         $state.go('login');
     };
+
+    $scope.goToAcceptedList = function (){
+      $state.go('AcceptedList');
+    };
+
 });
