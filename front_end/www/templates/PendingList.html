@@ -23,8 +23,7 @@
         <ion-list show-delete="false" can-swipe="true">
             <ion-item href="#"  ng-repeat = "request in requests | filter: {accepted: false} ">
                 request from {{request.tourist}},<br/> start date-end Date: {{request.startDate}}-{{request.endDate}}, totalCost: {{request.totalCost}}
-                <ion-option-button class="button-positive icon ion-checkmark-round" ng-click = "accepted(request)"></ion-option-button>
-                <ion-option-button class="button-assertive icon ion-close-round" ng-click="remove(request)"></ion-option-button>
+                <ion-option-button class="button-positive icon ion-checkmark-round" ng-click = "accepted(request._id)"></ion-option-button>
             </ion-item>
         </ion-list>
 
