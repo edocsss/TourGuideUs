@@ -15,7 +15,8 @@ angular.module('tour_guides').controller('RegisterController', function ($scope,
     }
 
     $scope.newUser = {
-        type: 'tourist'
+        type: 'tourist',
+        availability: {}
     };
 
     $scope.registerUser = function () {
@@ -28,7 +29,8 @@ angular.module('tour_guides').controller('RegisterController', function ($scope,
             tagline: $scope.newUser.type === 'tourguide' ? $scope.newUser.tagline : null,
             description: $scope.newUser.description === 'tourguide' ? $scope.newUser.description : null,
             location: $scope.newUser.type === 'tourguide' ? $scope.newUser.location : null,
-            price: $scope.newUser.type === 'tourguide' ? $scope.newUser.price : null
+            price: $scope.newUser.type === 'tourguide' ? $scope.newUser.price : null,
+            availability: $scope.newUser.type === 'tourguide' ? $scope.newUser.availability.end : null
         };
 
         Accounts.createUser({

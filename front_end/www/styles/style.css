@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .home-logo {
-    width: 250px;
+    width: 200px;
     height: auto;
 }
 
@@ -60,5 +60,16 @@ h1, h2, h3, h4, h5, h6,
 }
 
 #register-content button {
+    width: 100%;
+}
+
+#register-button-row {
+    margin-bottom: 50px !important;
+}
+
+
+
+
+#login-content button {
     width: 100%;
 }
