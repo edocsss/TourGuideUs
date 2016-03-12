@@ -1,0 +1,77 @@
+<ion-view view-title="Register User">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="register-content">
+        <div class="row register-section-title-row">
+            <div class="col">
+                <h5>Personal Details</h5>
+            </div>
+        </div>
+
+        <div class="list list-inset register-section-list">
+            <label class="item item-input">
+                <input type="text" name="fullName" placeholder="Full Name" ng-model="newUser.fullName">
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="Phone Number" ng-model="newUser.phone">
+            </label>
+
+            <label class="item item-input">
+                <input type="email" placeholder="Email Address" ng-model="newUser.email">
+            </label>
+
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="newUser.password">
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    User Type
+                </div>
+
+                <select ng-model="newUser.type">
+                    <option value="tourist" selected>Tourist</option>
+                    <option value="tourguide">Tour Guide</option>
+                </select>
+            </label>
+
+        </div>
+
+        <span ng-show="newUser.type === 'tourguide'">
+            <div class="row register-section-title-row">
+                <div class="col">
+                    <h5>Tour Guide Details</h5>
+                </div>
+            </div>
+
+            <div class="list list-inset register-section-list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Tagline" ng-model="newUser.tagline">
+                </label>
+
+                <label class="item item-input">
+                    <textarea row="10" placeholder="Description" ng-model="newUser.description"></textarea>
+                </label>
+
+                <label class="item item-input">
+                    <input type="text" placeholder="Location" ng-model="newUser.location">
+                </label>
+
+                <label class="item item-input">
+                    <input type="text" placeholder="Price (S$/hour)" ng-model="newUser.price">
+                </label>
+            </div>
+        </span>
+
+        <div class="row register-section-title-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-positive" ng-click="registerUser()">
+                    Register
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
