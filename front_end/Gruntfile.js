@@ -1,6 +1,6 @@
 // Generated on 2016-03-11 using generator-ionic 0.8.0
 'use strict';
-
+// Comment
 var _ = require('lodash');
 var path = require('path');
 var cordovaCli = require('cordova');
