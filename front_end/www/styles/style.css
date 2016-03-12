@@ -78,6 +78,22 @@ h1, h2, h3, h4, h5, h6,
     display: inline-block;
 }
 
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.normal-font-weight {
+    font-weight: normal;
+}
+
 
 
 #row-home-logo {
@@ -171,4 +187,55 @@ h1, h2, h3, h4, h5, h6,
 
 .availabe-guides-container {
     text-align: right;
+}
+
+
+
+
+.tour-guide-filter-row {
+    padding: 0;
+}
+
+.tour-guide-filter-row > .col {
+    text-align: center;
+    padding: 0;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.tour-guide-filter-row > .col:first-child {
+    border-right: 1px solid #DDDDDD;
+}
+
+.tour-guide-price-range-filter {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.tour-guide-price-filter-row {
+    padding-bottom: 0;
+}
+
+.tour-guide-price-filter-row .col {
+    padding-bottom: 0;
+}
+
+.tour-guide-price-filter-row .col h4 {
+    margin-bottom: 0;
+}
+
+.tour-guide-availability-filter:hover {
+    cursor: pointer;
+}
+
+.profile-picture-img {
+    max-width: 60px !important;
+    max-height: 60px !important;
+    top: 10px !important;
+}
+
+#tour-guide-list .item-avatar {
+    padding-left: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
