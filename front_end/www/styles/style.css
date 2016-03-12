@@ -38,6 +38,23 @@ html, body {
     margin-bottom: 4px;
 }
 
+.item,
+.item h1,
+.item h2,
+.item h3,
+.item h4,
+.item h5,
+.item h6,
+.item-content,
+.item-content h1,
+.item-content h2,
+.item-content h3,
+.item-content h4,
+.item-content h5,
+.item-content h6 {
+    overflow: none;
+}
+
 
 
 /* FONT FACE */
@@ -169,7 +186,7 @@ h1, h2, h3, h4, h5, h6,
     border: none;
 }
 
-#location-list .item:hover {
+.location-list-image-item:hover {
     cursor: pointer;
 }
 
