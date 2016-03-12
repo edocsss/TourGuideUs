@@ -4,14 +4,48 @@
     </ion-nav-bar>
 
     <ion-content id="tour-guide-list-content">
-        <div class="row">
+        <div class="row tour-guide-filter-row">
             <div class="col col-50">
-                Start Date
+                <h4 ion-datetime-picker date monday-first ng-model="filter.startDate" class="tour-guide-availability-filter">
+                    <span ng-show="!filter.startDate">Start Date</span>
+                    {{ filter.startDate | date: "d MMMM y" }}
+                </h4>
             </div>
 
             <div class="col col-50">
-               End Date
+                <h4 ion-datetime-picker date monday-first ng-model="filter.endDate" class="tour-guide-availability-filter">
+                    <span ng-show="!filter.endDate">End Date</span>
+                    {{ filter.endDate | date: "d MMMM y" }}
+                </h4>
             </div>
+        </div>
+
+        <div class="row tour-guide-price-filter-row">
+            <div class="col col-100">
+                <h4 class="text-center"><span class="normal-font-weight">${{ filter.price }} / hour</span></h4>
+            </div>
+        </div>
+
+        <div class="row row-center">
+            <div class="col col-20 text-right">
+                <h4 class="inline-block">$0</h4>
+            </div>
+
+            <div class="col col-60 range">
+                <input type="range" class="tour-guide-price-range-filter" ng-model="filter.price" min="0" max="100" value="0"></input>
+            </div>
+
+            <div class="col col-20 text-left">
+                <h4 class="inline-block">$100</h4>
+            </div>
+        </div>
+
+        <div class="list" id="tour-guide-list">
+            <span class="item item-avatar" ng-repeat="tourGuide in tourGuideList | filter: filterTourGuide">
+                <img src="{{ tourGuide.profile.profpicURl }}" class="profile-picture-img">
+                <h2><b>{{ tourGuide.profile.name }}</b></h2>
+                <p>{{ tourGuide.profile.tagline }}</p>
+            </span>
         </div>
     </ion-content>
 </ion-view>
