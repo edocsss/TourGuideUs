@@ -64,9 +64,43 @@
                     <input type="text" placeholder="Price (S$/hour)" ng-model="newUser.price">
                 </label>
             </div>
+
+            <div class="row register-section-title-row">
+                <div class="col">
+                    <h5>Availability</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-50">
+                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="newUser.availability.start">
+                        <span ng-show="!newUser.availability.start">
+                            <i class="icon ion-calendar"></i>
+                            Start Date
+                        </span>
+
+                        <span ng-show="newUser.availability.start">
+                            {{ newUser.availability.start | date: "d MMMM y" }}
+                        </span>
+                    </button>
+                </div>
+
+                <div class="col col-50">
+                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="newUser.availability.end">
+                        <span ng-show="!newUser.availability.end">
+                            <i class="icon ion-calendar"></i>
+                            End Date
+                        </span>
+
+                        <span ng-show="newUser.availability.end">
+                            {{ newUser.availability.end | date: "d MMMM y" }}
+                        </span>
+                    </button>
+                </div>
+            </div>
         </span>
 
-        <div class="row register-section-title-row">
+        <div class="row register-section-title-row" id="register-button-row">
             <div class="col col-offset-10 col-80">
                 <button class="button button-positive" ng-click="registerUser()">
                     Register

@@ -1,0 +1,25 @@
+<ion-view view-title="Login">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="login-content">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="email" name="email" placeholder="Email Address" ng-model="user.email">
+            </label>
+
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="user.password">
+            </label>
+        </div>
+
+        <div class="row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-positive" ng-click="loginUser()">
+                    Login
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

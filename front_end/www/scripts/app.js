@@ -7,7 +7,8 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('tour_guides', [
 	'ionic',
-	'angular-meteor'
+	'angular-meteor',
+    'ion-datetime-picker'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
