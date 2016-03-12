@@ -12,8 +12,8 @@
         </div>
 
         <div class="list" id="location-list">
-            <span ng-repeat="location in locationList | filter: { name: location.searchText }" ui-sref="tourGuideList({ locationId: location._id })">
-                <div class="item location-list-image-item">
+            <span ng-repeat="location in locationList | filter: { name: location.searchText }">
+                <div class="item location-list-image-item" ui-sref="tourGuideList({ locationId: location._id })">
                     <div class="location-img-container">
                         <img src="{{ location.imgURL }}" class="location-list-img">
                     </div>
@@ -23,12 +23,13 @@
                     <div class="row">
                         <div class="col">
                             <h3>{{ location.name }}</h3>
+                            <h4>{{ location.tourguides.length }} guides</h4>
                         </div>
-
+<!--
                         <div class="col availabe-guides-container">
                             <h3 class="inline-block">{{ location.tourguides.length }}</h3>
                             <h3 class="inline-block">Guides</h3>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </span>

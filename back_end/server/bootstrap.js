@@ -36,7 +36,7 @@ Meteor.startup(function () {
                 profpicURl: getRandomProfpicURL(),
                 tagline: 'Tour Guide 1 Tagline',
                 description: 'I have a tour guide license',
-                location: 'Jakarta',
+                location: 'jakarta',
                 price: 30,
                 availability: {
                     start: new Date('March 14, 2016 00:00:00'),
@@ -56,7 +56,7 @@ Meteor.startup(function () {
                 profpicURl: getRandomProfpicURL(),
                 tagline: 'Tour Guide 2 Tagline',
                 description: 'I have a tour guide license',
-                location: 'Jakarta',
+                location: 'jakarta',
                 price: 50,
                 availability: {
                     start: new Date('March 14, 2016 00:00:00'),
@@ -69,31 +69,31 @@ Meteor.startup(function () {
 
     if (Locations.find().count() === 0) {
         Locations.insert({
-            name: 'Jakarta',
+            name: 'jakarta',
             imgURL: 'images/locations/jakarta.jpg',
             tourguides: [testTourguideID, testTourguideID2]
         });
 
         Locations.insert({
-            name: 'Bali',
+            name: 'bali',
             imgURL: 'images/locations/bali.jpg',
             tourguides: [testTourguideID, testTourguideID]
         });
 
         Locations.insert({
-            name: 'India',
+            name: 'india',
             imgURL: 'images/locations/india.jpg',
             tourguides: [testTourguideID, testTourguideID]
         });
 
         Locations.insert({
-            name: 'Singapore',
+            name: 'singapore',
             imgURL: 'images/locations/singapore.jpg',
             tourguides: [testTourguideID, testTourguideID, testTourguideID]
         });
 
         Locations.insert({
-            name: 'Malaysia',
+            name: 'malaysia',
             imgURL: 'images/locations/malaysia.jpeg',
             tourguides: [testTourguideID, testTourguideID, testTourguideID, testTourguideID]
         });
@@ -101,6 +101,7 @@ Meteor.startup(function () {
 
 
     if (Bookings.find().count() === 0) {
+
         Bookings.insert({
             participants: {
                 tour_guide: testTourguideID,

@@ -28,22 +28,17 @@ angular.module('tour_guides').controller('RegisterController', function ($scope,
             profpicURL: getRandomProfpicURL(),
             tagline: $scope.newUser.type === 'tourguide' ? $scope.newUser.tagline : null,
             description: $scope.newUser.description === 'tourguide' ? $scope.newUser.description : null,
-            location: $scope.newUser.type === 'tourguide' ? $scope.newUser.location : null,
+            location: $scope.newUser.type === 'tourguide' ? $scope.newUser.location.toLowerCase() : null,
             price: $scope.newUser.type === 'tourguide' ? $scope.newUser.price : null,
             availability: $scope.newUser.type === 'tourguide' ? $scope.newUser.availability.end : null
         };
 
-        Accounts.createUser({
-            email: $scope.newUser.email,
-            password: $scope.newUser.password,
-            profile: userProfile
-        }, function (error) {
-            // When there is no error, the user is logged in by default
-            console.log(error);
-            if (!error) {
-                $state.go('locationList');
+        Meteor.call('createNewUser', $scope.newUser.email, $scope.newUser.password, userProfile ,function (error) {
+            if (error) {
+                console.log('ERROR');
+                console.log(error);
             } else {
-                // SPAWN ALERT HERE or DISPLAY ERROR MESSAGE ON UI
+                $state.go('locationList');
             }
         });
     };
