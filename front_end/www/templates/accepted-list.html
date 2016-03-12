@@ -21,7 +21,7 @@
 
     <ion-content>
         <ion-list show-delete="false" can-swipe="true">
-            <ion-item ng-repeat = "request in requests | filter: {accepted: true} ">
+            <ion-item ng-repeat="request in requests">
                 request from {{ getBookingTouristName(request._id) }},<br/> start date-end Date: { {  getBookingDatesFirst(request._id)} }-{ {getBookingDatesSecond(request._id)} }, totalCost: {{ request.totalCost }}
                 <ion-option-button class="button-assertive icon ion-close-round" ng-click="remove(request._id)"></ion-option-button>
             </ion-item>

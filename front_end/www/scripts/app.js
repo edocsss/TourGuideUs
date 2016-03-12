@@ -52,14 +52,14 @@ angular.module('tour_guides', [
           templateUrl: 'templates/booking-request.html',
           controller: 'BookingRequestController'
         })
-        .state('AcceptedList', {
-          url: '/AcceptedList',
-          templateUrl: 'templates/AcceptedList.html',
+        .state('acceptedList', {
+          url: '/acceptedList',
+          templateUrl: 'templates/accepted-list.html',
           controller: 'AcceptedRequestController'
         })
-        .state('PendingList', {
+        .state('pendingList', {
           url: '/pendingList',
-          templateUrl: 'templates/PendingList.html',
+          templateUrl: 'templates/pending-list.html',
           controller: 'PendingRequestController'
         });
 

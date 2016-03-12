@@ -24,8 +24,7 @@ angular.module('tour_guides').controller('PendingRequestController', function ($
 
   //if filter accepted button is clicked
   $scope.filterAccepted = function(){
-    $state.go('AcceptedList');
-    console.log("ClickAccepted");
+    $state.go('acceptedList');
   };
 
 

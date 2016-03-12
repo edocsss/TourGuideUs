@@ -6,7 +6,11 @@ angular.module('tour_guides').controller('LoginController', function ($scope, $s
         Meteor.loginWithPassword($scope.user.email, $scope.user.password, function (error) {
             if (!error) {
                 console.log('USER LOGGED IN!');
-                $state.go('locationList');
+                if (Meteor.user().profile.type === 'tourist') {
+                    $state.go('locationList');
+                } else {
+                    $state.go('acceptedList');
+                }
             } else {
                 console.log('ERROR LOGGING IN');
                 console.log(error);

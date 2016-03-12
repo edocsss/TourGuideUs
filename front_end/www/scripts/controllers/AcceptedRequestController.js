@@ -1,8 +1,6 @@
 'use strict';
 
 angular.module('tour_guides').controller('AcceptedRequestController', function ($scope, $state) {
-  var itemsData = [];
-
   $scope.helpers({
     requests: function () {
       return Bookings.find({
@@ -19,8 +17,7 @@ angular.module('tour_guides').controller('AcceptedRequestController', function (
 
   //if filter pending button is clicked
   $scope.filterPending = function(){
-    $state.go('PendingList');
-    console.log("Clickrejected");
+    $state.go('pendingList');
   };
 
   $scope.getBookingTouristName = function (bookingId) {
