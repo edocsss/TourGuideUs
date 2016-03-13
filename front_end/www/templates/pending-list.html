@@ -1,39 +1,20 @@
-<div id="BottomTab">
-    <ion-tabs class="tabs-positive tabs-icon-top" id="TabBottom" style="margin-top: 100%">
+<ion-view view-title="Pending">
+    <ion-nav-bar class="bar-positive"></ion-nav-bar>
 
-        <ion-tab title="Accepted" icon-on="ion-ios-filing-outline" icon-off="ion-ios-filing"
-                 ng-click="filterAccepted()">
-            <!-- Tab 1 content -->
-        </ion-tab>
-
-        <ion-tab title="Pending" icon-on="ion-ios-clock-outline" icon-off="ion-ios-clock"
-                 ng-click="filterPending()">
-            <!-- Tab 2 content -->
-        </ion-tab>
-
-    </ion-tabs>
-</div>
-
-<ion-pane>
-    <ion-header-bar class="bar-stable">
-        <h1 class="title">Requested List</h1>
-    </ion-header-bar>
-
-    <ion-content>
+    <ion-content class="request-list">
         <ion-list show-delete="false" can-swipe="true">
-            <ion-item ng-repeat = "request in requests | filter: {accepted: false} " class="item item-avatar">
+            <ion-item ng-repeat = "request in requests | filter: {accepted: false} " class="item item-avatar tour-guide-list-item" ui-sref="ListDetail({requestId: request._id})">
                 <img ng-src = "{{getImageUser(request._id)}}" class="listProfilePicture">
-                <h2 class="idListName">{{ getBookingTouristName(request._id)}}</h2>
+                <h2 class="idListName"><b>{{ getBookingTouristName(request._id)}}</b></h2>
                 <ul class = "listProfile">
-                    <li>{{  getDayLength(request._id) }} days</li>
-                    <li class = "rightPart">${{  getTotalPrice(request._id) }} </li>
+                    <li>  {{  getDayLength(request._id) }} days  </li>
+                    <li class="rightPart">${{  getTotalPrice(request._id) }} </li>
                 </ul>
                 <!-- request from ,<br/> start date-end Date: { {  getBookingDatesFirst(request._id)} }-{ {getBookingDatesSecond(request._id)} }, totalCost: {{ request.totalCost }}-->
-                <ion-option-button class="button-assertive icon ion-close-round" ng-click="accepted(request._id)"></ion-option-button>
+                <ion-option-button class="button-positive icon ion-checkmark-round" ng-click="accepted(request._id)"></ion-option-button>
             </ion-item>
         </ion-list>
-
     </ion-content>
 
-</ion-pane>
+</ion-view>
 

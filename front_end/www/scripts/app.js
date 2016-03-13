@@ -16,12 +16,12 @@ angular.module('tour_guides', [
              url: '',
              templateUrl: 'templates/home.html',
              controller: 'HomeController',
-             // authenticate: false
+             authenticate: false
          })
         // .state('home', {
         //    url: '',
-        //    templateUrl: 'templates/location-list.html',
-        //    controller: 'LocationListController',
+        //    templateUrl: 'templates/accepted-list.html',
+        //    controller: 'AcceptedRequestController',
         //    authenticate: false
         // })
         .state('login', {
@@ -60,24 +60,36 @@ angular.module('tour_guides', [
           controller: 'BookingRequestController',
           // authenticate: 'tourist'
         })
-        .state('acceptedList', {
-          url: '/acceptedList',
-          templateUrl: 'templates/accepted-list.html',
-          controller: 'AcceptedRequestController',
-          // authenticate: 'tourguide'
+        .state('requestList', {
+          url: '/request',
+          abstract: true,
+          templateUrl: 'templates/request-tabs.html'
         })
-        .state('pendingList', {
-          url: '/pendingList',
-          templateUrl: 'templates/pending-list.html',
-          controller: 'PendingRequestController',
-          // authenticate: 'tourguide'
+        .state('requestList.acceptedList', {
+          url: '/request/acceptedList',
+          views: {
+            'accepted-request-tab': {
+              templateUrl: 'templates/accepted-list.html',
+              controller: 'AcceptedRequestController',
+              // authenticate: 'tourguide'
+            }
+          }
         })
-
+        .state('requestList.pendingList', {
+          url: '/request/pendingList',
+          views: {
+            'pending-request-tab': {
+              templateUrl: 'templates/pending-list.html',
+              controller: 'PendingRequestController',
+              // authenticate: 'tourguide'
+            }
+          }
+        })
         .state('ListDetail', {
-        url: '/listDetail/:requestId',
-        templateUrl: 'templates/ListDetail.html',
-        controller: 'listDetailController'
-      });
+          url: '/listDetail/:requestId',
+          templateUrl: 'templates/ListDetail.html',
+          controller: 'listDetailController'
+        });
 
   $urlRouterProvider.otherwise('');
 })
