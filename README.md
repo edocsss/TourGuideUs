@@ -1,4 +1,4 @@
-# TOURGUIDEUS
+# TourGuideUs
 
 ## What is this project about?
 
