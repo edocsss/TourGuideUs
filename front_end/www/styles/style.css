@@ -333,6 +333,10 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
 }
 
+.tour-guide-small-details {
+    color: #888888 !important;
+}
+
 
 
 
@@ -374,4 +378,51 @@ h2 .idListName{
 .request-list .item:first-child,
 .request-list .item-avatar.item-complex:first-child {
     border-top: none !important;
+}
+
+
+
+
+
+.request-booking-tour-guide-profpic {
+    width: 70px;
+    height: auto;
+}
+
+#request-booking-tourguide-name {
+    margin-bottom: 0;
+}
+
+#request-booking-location-price {
+    margin-top: 4px;
+}
+
+.tour-guide-details-row .col.col-67 {
+    padding-left: 15px;
+}
+
+.request-booking-section-title-row h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.request-booking-date-col button,
+.request-booking-time-col button {
+    width: 49%;
+}
+
+.request-booking-delete-date-icon {
+    font-size: 28px;
+}
+
+.request-booking-delete-date-icon:hover {
+    cursor: pointer;
+}
+
+.request-booking-add-date-row button {
+    width: 100%;
+}
+
+#request-booking-button-row button {
+    width: 100%;
 }
