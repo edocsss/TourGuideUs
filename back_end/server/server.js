@@ -108,10 +108,13 @@ Meteor.startup(function () {
                 tour_guide: testTourguideID,
                 tourist: testTouristID
             },
-            dates: {
-                '2016-03-14': 3,
-                '2016-03-15': 4
-            },
+            dates: [{
+                date:'2016-03-14',
+                    time:10
+                    }, {
+                date:'2016-03-15',
+                    time:15
+            }],
             totalCost: 1000,
             accepted: false
         });
@@ -121,10 +124,13 @@ Meteor.startup(function () {
                 tour_guide: testTourguideID2,
                 tourist: testTouristID
             },
-            dates: {
-                '2016-03-20': 3,
-                '2016-03-22': 4
-            },
+            dates: [{
+                date:'2016-03-14',
+                time:10
+            }, {
+                date:'2016-03-15',
+                time:15
+            }],
             totalCost: 1000,
             accepted: false
         });

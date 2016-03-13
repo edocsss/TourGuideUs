@@ -15,7 +15,14 @@
                 <h3 id="tour-guide-name">{{ touristing.profile.name }}</h3>
                 <h5 id="totalPrice-listName">price: ${{bookingRequest.totalCost}}</h5>
                 <h5 id="tour-guide-contact">phone: {{ touristing.profile.contact }}</h5>
-                <h5 id="date-details-user">{{ getDatingDetail()}}</h5>
+            </div>
+
+        </div>
+        <div class = "row">
+            <div class = "col col-100">
+                <ol type="1">
+                    <li ng-repeat="dataDate in dataDates">{{dataDate.date}} for {{dataDate.time}} hours</li>
+                </ol>
             </div>
         </div>
     </ion-content>

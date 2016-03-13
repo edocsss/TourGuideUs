@@ -3,6 +3,7 @@
     </ion-nav-bar>
 
     <ion-content class="request-list">
+        
         <ion-list show-delete="false" can-swipe="true">
             <ion-item ng-repeat = "request in requests | filter: {accepted: true} " class="item item-avatar tour-guide-list-item" ui-sref="ListDetail({requestId: request._id})">
                 <img ng-src = "{{getImageUser(request._id)}}" class="listProfilePicture">
