@@ -9,7 +9,7 @@ angular.module('tour_guides').controller('LoginController', function ($scope, $s
                 if (Meteor.user().profile.type === 'tourist') {
                     $state.go('locationList');
                 } else {
-                    $state.go('acceptedList');
+                    $state.go('requestList.acceptedList');
                 }
             } else {
                 console.log('ERROR LOGGING IN');

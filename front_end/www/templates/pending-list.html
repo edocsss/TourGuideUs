@@ -3,9 +3,9 @@
 
     <ion-content class="request-list">
         <ion-list show-delete="false" can-swipe="true">
-            <ion-item ng-repeat = "request in requests | filter: {accepted: false} " class="item item-avatar tour-guide-list-item" ui-sref="ListDetail({requestId: request._id})">
+            <ion-item ng-repeat = "request in requests" class="item item-avatar tour-guide-list-item" ng-click="goToListDetail(request._id)">
                 <img ng-src = "{{getImageUser(request._id)}}" class="listProfilePicture">
-                <h2 class="idListName"><b>{{ getBookingTouristName(request._id)}}</b></h2>
+                <h2 class="idListName"><b>{{ getTouristName(request._id) }}</b></h2>
                 <ul class = "listProfile">
                     <li>  {{  getDayLength(request._id) }} days  </li>
                     <li class="rightPart">${{  getTotalPrice(request._id) }} </li>

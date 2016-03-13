@@ -1,15 +1,20 @@
 'use strict';
 
-angular.module('tour_guides').controller('PendingRequestController', function ($scope, $state) {
-  var itemsData = [];
-
+angular.module('tour_guides').controller('PendingRequestController', function ($scope, $state, $stateParams) {
   $scope.helpers({
     requests: function () {
       return Bookings.find({
+        'participants.tour_guide': Meteor.userId(),
         accepted: false
       });
     }
   });
+
+  $scope.goToListDetail = function (requestId) {
+    $state.go('ListDetail', {
+      requestId: requestId
+    });
+  };
 
   //if like button is clicked
   $scope.accepted = function (requestId) {
@@ -19,7 +24,7 @@ angular.module('tour_guides').controller('PendingRequestController', function ($
       $set: {
         accepted: true
       }
-    })
+    });
   };
 
   //if filter accepted button is clicked
@@ -40,42 +45,12 @@ angular.module('tour_guides').controller('PendingRequestController', function ($
 
 
   $scope.getDayLength = function (bookingId) {
-
-    var year1 = 0;
-    var year2 = 0;
-    var month1 = 0;
-    var month2 = 0;
-    var day1 = 0;
-    var day2 = 0;
-
-
-    var ObjectDate = Bookings.findOne({
+    return Bookings.findOne({
       _id: bookingId
-    }).dates;
-
-    var firstDate = Object.keys(ObjectDate)[0];
-    var secondDate = Object.keys(ObjectDate)[1];
-
-    firstDate = firstDate.toString();
-
-    year1 =  parseInt(firstDate.substr(0,4));
-    month1 = parseInt(firstDate.substr(5,2));
-    day1 = parseInt(firstDate.substr(8,2));
-
-
-    year2 =  parseInt(secondDate.substr(0,4));
-    month2 = parseInt(secondDate.substr(5,2));
-    day2 = parseInt(secondDate.substr(8,2));
-
-    var totalDay = (year2-year1)*365+(month2-month1)*30+(day2-day1);
-    return totalDay;
-
+    }).dates.length;
   };
 
-
   $scope.getTotalPrice = function(bookingId){
-
-
     var totalPrice = Bookings.findOne({
       _id: bookingId
     }).totalCost;
@@ -83,15 +58,10 @@ angular.module('tour_guides').controller('PendingRequestController', function ($
     return totalPrice;
   };
 
-
-
-
-  $scope.getBookingTouristName = function (bookingId) {
+  $scope.getTouristName = function (bookingId) {
     var touristId = Bookings.findOne({
       _id: bookingId
     }).participants.tourist;
-
-
 
     return Meteor.users.findOne({
       _id: touristId

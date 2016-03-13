@@ -13,7 +13,7 @@ function getRandomProfpicURL () {
 
 
 Meteor.startup(function () {
-    var testTourguideID, testTourguideID2, testTouristID;
+    var testTourguideID, testTourguideID2, testTouristID, testTouristID2;
     if (Meteor.users.find().count() === 0) {
         testTouristID = Accounts.createUser({
             email: 'tourist1@tourist.com',
@@ -21,7 +21,19 @@ Meteor.startup(function () {
             profile: {
                 name: 'Test Tourist 1',
                 email: 'tourist1@tourist.com',
-                contact: '12345678',
+                contact: '91236548',
+                profpicURL: getRandomProfpicURL(),
+                type: 'tourist'
+            }
+        });
+
+        testTouristID2 = Accounts.createUser({
+            email: 'tourist2@tourist.com',
+            password: '12345678',
+            profile: {
+                name: 'Test Tourist 2',
+                email: 'tourist2@tourist.com',
+                contact: '94567512',
                 profpicURL: getRandomProfpicURL(),
                 type: 'tourist'
             }
@@ -33,11 +45,11 @@ Meteor.startup(function () {
             profile: {
                 name: 'Test Tour Guide 1',
                 email: 'tourguide1@tourguide.com',
-                contact: '12345678',
+                contact: '84885652',
                 profpicURL: getRandomProfpicURL(),
-                tagline: 'Tour Guide 1 Tagline',
-                description: 'I have a tour guide license',
-                location: 'jakarta',
+                tagline: 'Dream, Explore, Discover!',
+                description: 'If you were to describe me in one word, it would be "reliable"! I have been living in Bali for the past 10 years now and I can bring you an enjoyable and memorable experience.',
+                location: 'bali',
                 price: 30,
                 availability: {
                     start: new Date('March 14, 2016 00:00:00'),
@@ -55,13 +67,13 @@ Meteor.startup(function () {
                 email: 'tourguide2@tourguide.com',
                 contact: '12345678',
                 profpicURL: getRandomProfpicURL(),
-                tagline: 'Tour Guide 2 Tagline',
-                description: 'I have a tour guide license',
-                location: 'jakarta',
-                price: 10,
+                tagline: 'Live is too short not to travel!',
+                description: 'I am a Singapore Permanent Resident and I have been here for 15 years. People said that Singapore is just a tiny red dot. However, there are a lot of places that are not covered by blogs and travel agents. I know those places!',
+                location: 'singapore',
+                price: 40,
                 availability: {
-                    start: new Date('March 14, 2016 00:00:00'),
-                    end: new Date('March 31, 2016 23:59:59')
+                    start: new Date('April 14, 2016 00:00:00'),
+                    end: new Date('May 31, 2016 23:59:59')
                 },
                 type: 'tourguide'
             }
@@ -70,33 +82,15 @@ Meteor.startup(function () {
 
     if (Locations.find().count() === 0) {
         Locations.insert({
-            name: 'jakarta',
-            imgURL: 'images/locations/jakarta.jpg',
-            tourguides: [testTourguideID, testTourguideID2]
-        });
-
-        Locations.insert({
             name: 'bali',
             imgURL: 'images/locations/bali.jpg',
-            tourguides: [testTourguideID, testTourguideID]
-        });
-
-        Locations.insert({
-            name: 'india',
-            imgURL: 'images/locations/india.jpg',
-            tourguides: [testTourguideID, testTourguideID]
+            tourguides: [testTourguideID]
         });
 
         Locations.insert({
             name: 'singapore',
             imgURL: 'images/locations/singapore.jpg',
-            tourguides: [testTourguideID, testTourguideID, testTourguideID]
-        });
-
-        Locations.insert({
-            name: 'malaysia',
-            imgURL: 'images/locations/malaysia.jpeg',
-            tourguides: [testTourguideID, testTourguideID, testTourguideID, testTourguideID]
+            tourguides: [testTourguideID2]
         });
     }
 
@@ -109,13 +103,13 @@ Meteor.startup(function () {
                 tourist: testTouristID
             },
             dates: [{
-                date:'2016-03-14',
-                    time:10
-                    }, {
-                date:'2016-03-15',
-                    time:15
+                date: new Date('March 15, 2016 00:00:00'),
+                time: 5
+            }, {
+                date: new Date('March 16, 2016 00:00:00'),
+                time: 8
             }],
-            totalCost: 1000,
+            totalCost: 390,
             accepted: false
         });
 
@@ -125,13 +119,13 @@ Meteor.startup(function () {
                 tourist: testTouristID
             },
             dates: [{
-                date:'2016-03-14',
-                time:10
+                date: new Date('April 20, 2016 00:00:00'),
+                time: 5
             }, {
-                date:'2016-03-15',
-                time:15
+                date: new Date('April 26, 2016 00:00:00'),
+                time: 3
             }],
-            totalCost: 1000,
+            totalCost: 320,
             accepted: false
         });
     }

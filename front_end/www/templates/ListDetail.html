@@ -3,26 +3,46 @@
         <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
 
-    <ion-content id="tour-guide-details-content">
+    <ion-content id="request-details-content">
         <div class="row row-center row-md-margin-top" id="tour-guide-profile-picture-row">
             <div class="col col-100 text-center">
                 <img src="{{ touristing.profile.profpicURL }}" class="tour-guide-profile-picture">
             </div>
         </div>
 
-        <div class="row row-center" id="tour-guide-name-row">
+        <div class="row row-center">
             <div class="col col-100 text-center">
-                <h3 id="tour-guide-name">{{ touristing.profile.name }}</h3>
-                <h5 id="totalPrice-listName">price: ${{bookingRequest.totalCost}}</h5>
-                <h5 id="tour-guide-contact">phone: {{ touristing.profile.contact }}</h5>
+                <h3 id="tourist-name">{{ touristing.profile.name }}</h3>
+                <h5 id="tourist-contact" class="normal-font-weight">{{ touristing.profile.email }} | {{ touristing.profile.contact }}</h5>
             </div>
-
         </div>
-        <div class = "row">
-            <div class = "col col-100">
-                <ol type="1">
-                    <li ng-repeat="dataDate in dataDates">{{dataDate.date}} for {{dataDate.time}} hours</li>
-                </ol>
+
+        <div class="row row-center" id="request-details-total-cost-row">
+            <div class="col col-100">
+                <h4>Total Cost: <span class="normal-font-weight">${{bookingRequest.totalCost}}</span></h4>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-date-time">
+            <div class="col col-100">
+                <h4>Booking Details:</h4>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-datetime-row">
+            <div class="col col-100">
+                <div class="list list-inset">
+                    <div class="item" ng-repeat="dataDate in dataDates">
+                        {{ dataDate.date | date: "d MMMM y" }} for {{ dataDate.time }} hours
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-center row-md-margin-top" id="request-details-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-brand-primary" ng-show="!bookingRequest.accepted" ng-click="acceptBooking()">Accept</button>
+                <button class="button button-assertive" ng-show="bookingRequest.accepted" ng-click="deleteBooking()">Delete</button>
             </div>
         </div>
     </ion-content>

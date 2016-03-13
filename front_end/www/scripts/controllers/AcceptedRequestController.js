@@ -1,13 +1,20 @@
 'use strict';
 
-var acceptApp = angular.module('tour_guides').controller('AcceptedRequestController', function ($scope, $state) {
+angular.module('tour_guides').controller('AcceptedRequestController', function ($scope, $state) {
   $scope.helpers({
     requests: function () {
       return Bookings.find({
+        'participants.tour_guide': Meteor.userId(),
         accepted: true
       });
     }
   });
+
+  $scope.goToListDetail = function (requestId) {
+    $state.go('ListDetail', {
+      requestId: requestId
+    });
+  };
 
 
   $scope.remove = function(requestId) {
@@ -38,36 +45,9 @@ var acceptApp = angular.module('tour_guides').controller('AcceptedRequestControl
   };
 
   $scope.getDayLength = function (bookingId) {
-
-    var year1 = 0;
-    var year2 = 0;
-    var month1 = 0;
-    var month2 = 0;
-    var day1 = 0;
-    var day2 = 0;
-
-
-    var ObjectDate = Bookings.findOne({
+    return Bookings.findOne({
       _id: bookingId
-    }).dates;
-
-    var firstDate = Object.keys(ObjectDate)[0];
-    var secondDate = Object.keys(ObjectDate)[1];
-
-    firstDate = firstDate.toString();
-
-    year1 =  parseInt(firstDate.substr(0,4));
-    month1 = parseInt(firstDate.substr(5,2));
-    day1 = parseInt(firstDate.substr(8,2));
-
-
-    year2 =  parseInt(secondDate.substr(0,4));
-    month2 = parseInt(secondDate.substr(5,2));
-    day2 = parseInt(secondDate.substr(8,2));
-
-    var totalDay = (year2-year1)*365+(month2-month1)*30+(day2-day1);
-    return totalDay;
-
+    }).dates.length;
   };
 
 
@@ -81,20 +61,13 @@ var acceptApp = angular.module('tour_guides').controller('AcceptedRequestControl
   };
 
 
-  $scope.getBookingTouristName = function (bookingId) {
+  $scope.getTouristName = function (bookingId) {
     var touristId = Bookings.findOne({
       _id: bookingId
     }).participants.tourist;
-
-
 
     return Meteor.users.findOne({
       _id: touristId
     }).profile.name;
   };
-});
-
-acceptApp.config(function($ionicConfigProvider) {
-  $ionicConfigProvider.views.maxCache(5);
-  $ionicConfigProvider.tabs.position("bottom");
 });

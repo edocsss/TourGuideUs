@@ -1,18 +1,18 @@
 <ion-view view-title="Accepted">
     <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
 
     <ion-content class="request-list">
-        
         <ion-list show-delete="false" can-swipe="true">
-            <ion-item ng-repeat = "request in requests | filter: {accepted: true} " class="item item-avatar tour-guide-list-item" ui-sref="ListDetail({requestId: request._id})">
+            <ion-item ng-repeat = "request in requests" class="item item-avatar tour-guide-list-item" ng-click="goToListDetail(request._id)"  >
                 <img ng-src = "{{getImageUser(request._id)}}" class="listProfilePicture">
-                <h2 class="idListName"><b>{{ getBookingTouristName(request._id)}}</b></h2>
+                <h2 class="idListName"><b>{{ getTouristName(request._id)}}</b></h2>
                 <ul class = "listProfile">
                     <li>{{  getDayLength(request._id) }} days</li>
                     <li class = "rightPart">${{  getTotalPrice(request._id) }} </li>
                 </ul>
-               <!-- request from ,<br/> start date-end Date: { {  getBookingDatesFirst(request._id)} }-{ {getBookingDatesSecond(request._id)} }, totalCost: {{ request.totalCost }}-->
+
                 <ion-option-button class="button-assertive icon ion-close-round" ng-click="remove(request._id)"></ion-option-button>
             </ion-item>
         </ion-list>
