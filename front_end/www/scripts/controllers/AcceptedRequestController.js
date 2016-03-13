@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tour_guides').controller('AcceptedRequestController', function ($scope, $state) {
+var acceptApp = angular.module('tour_guides').controller('AcceptedRequestController', function ($scope, $state) {
   $scope.helpers({
     requests: function () {
       return Bookings.find({
@@ -8,6 +8,7 @@ angular.module('tour_guides').controller('AcceptedRequestController', function (
       });
     }
   });
+
 
   $scope.remove = function(requestId) {
     Bookings.remove({
@@ -91,4 +92,9 @@ angular.module('tour_guides').controller('AcceptedRequestController', function (
       _id: touristId
     }).profile.name;
   };
+});
+
+acceptApp.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.views.maxCache(5);
+  $ionicConfigProvider.tabs.position("bottom");
 });

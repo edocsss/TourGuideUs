@@ -12,6 +12,11 @@ angular.module('tour_guides', [
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+        .state('tab', {
+          url: '/tab',
+          abstract: true,
+          templateUrl: 'templates/tab.html'
+        })
         .state('home', {
              url: '',
              templateUrl: 'templates/home.html',
