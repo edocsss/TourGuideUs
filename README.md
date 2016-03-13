@@ -14,6 +14,7 @@ meteor
 ```
 - Install web apps dependencies
 ```
+cd <path_to_project_folder>/front_end
 npm install
 bower install
 ```
@@ -26,6 +27,9 @@ ionic serve --lab
 Tourist:
 ```
 Username: tourist1@tourist.com
+Password: 12345678
+
+Username: tourist2@tourist.com
 Password: 12345678
 ```
 
