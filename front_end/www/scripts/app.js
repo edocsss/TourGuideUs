@@ -25,8 +25,8 @@ angular.module('tour_guides', [
          })
         // .state('home', {
         //    url: '',
-        //    templateUrl: 'templates/location-list.html',
-        //    controller: 'LocationListController',
+        //    templateUrl: 'templates/accepted-list.html',
+        //    controller: 'AcceptedRequestController',
         //    authenticate: false
         // })
         .state('login', {

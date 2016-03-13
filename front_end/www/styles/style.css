@@ -426,3 +426,32 @@ h2 .idListName{
 #request-booking-button-row button {
     width: 100%;
 }
+
+
+
+
+
+#request-details-content #tourist-name {
+    margin-bottom: 0
+}
+
+#request-details-content #tourist-contact {
+    margin-top: 3px;
+}
+
+#request-details-total-cost-row h4 {
+    margin-bottom: 0;
+}
+
+#request-details-datetime-row .list-inset {
+    margin: 0;
+}
+
+#request-details-date-time h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#request-details-button-row button {
+    width: 100%;
+}

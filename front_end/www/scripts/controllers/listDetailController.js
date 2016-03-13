@@ -1,14 +1,9 @@
 'use strict';
 
-angular.module('tour_guides').controller('listDetailController', function ($scope, $stateParams) {
-  //$scope.test = 'test';
-
-
-
+angular.module('tour_guides').controller('listDetailController', function ($scope, $stateParams, $state) {
   var touristId = Bookings.findOne({
     _id:  $stateParams.requestId
   }).participants.tourist;
-
 
   $scope.touristing = Meteor.users.findOne({
     _id: touristId
@@ -18,20 +13,14 @@ angular.module('tour_guides').controller('listDetailController', function ($scop
     _id: $stateParams.requestId
   });
 
-
-    $scope.dataDates = Bookings.findOne({
-          _id: $stateParams.requestId
-        }).dates;
+  $scope.dataDates = Bookings.findOne({
+    _id: $stateParams.requestId
+  }).dates;
 
   $scope.getTime = function (data){
       console.log(data);
   };
 
-  $scope.getDateTry = function(object){
-      console.log("date");
-      console.log(object);
-  };
-  //then we need to sort the date based on the comparator
   function comparator(a,b){
     var year1 =  parseInt(a.date.substr(0,4));
     var month1 = parseInt(a.date.substr(5,2));
@@ -62,5 +51,30 @@ angular.module('tour_guides').controller('listDetailController', function ($scop
     }
   }
 
+  $scope.acceptBooking = function () {
+    Bookings.update({
+      _id: $scope.bookingRequest._id
+    }, {
+      $set: {
+        accepted: true
+      }
+    });
 
+    $scope.bookingRequest = Bookings.findOne({
+      _id: $stateParams.requestId
+    });
+    $state.go('requestList.pendingList');
+  };
+
+  $scope.deleteBooking = function () {
+    Bookings.remove({
+      _id: $scope.bookingRequest._id
+    });
+
+    $scope.bookingRequest = Bookings.findOne({
+      _id: $stateParams.requestId
+    });
+
+    $state.go('requestList.acceptedList');
+  };
 });
