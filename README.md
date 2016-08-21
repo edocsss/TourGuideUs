@@ -1,6 +1,9 @@
 # TourGuideUs
 
 ## What is this project about?
+This project is developed during the 24-hours NTU IEEE Hackathon in March 2016. It is a marketplace mobile application for tourists and local tour guides developed using Ionic (front end) and Meteor.js (back end). 
+
+This idea **was chosen as the Runner Up winner** of the Hackathon.
 
 ## Preparation Steps
 - Install Node.js and NPM
